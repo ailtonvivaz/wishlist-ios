@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5EBD416923F1D34D00BDFC62 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EBD416823F1D34D00BDFC62 /* Media.xcassets */; };
+		5EBD416B23F1D34D00BDFC62 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBD416A23F1D34D00BDFC62 /* ActionViewController.swift */; };
+		5EBD416E23F1D34D00BDFC62 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EBD416C23F1D34D00BDFC62 /* MainInterface.storyboard */; };
+		5EBD417223F1D34D00BDFC62 /* AddAction.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5EBD416623F1D34D00BDFC62 /* AddAction.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5EBD890F23F0BBEF008A5F5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBD890E23F0BBEF008A5F5E /* AppDelegate.swift */; };
 		5EBD891123F0BBEF008A5F5E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBD891023F0BBEF008A5F5E /* SceneDelegate.swift */; };
 		5EBD891423F0BBEF008A5F5E /* Wishlist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5EBD891223F0BBEF008A5F5E /* Wishlist.xcdatamodeld */; };
@@ -17,7 +21,37 @@
 		5EBD892823F0BD43008A5F5E /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EBD892723F0BD43008A5F5E /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5EBD417023F1D34D00BDFC62 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5EBD890323F0BBEF008A5F5E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5EBD416523F1D34D00BDFC62;
+			remoteInfo = AddAction;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5EBD417423F1D34D00BDFC62 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				5EBD417223F1D34D00BDFC62 /* AddAction.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		5EBD416623F1D34D00BDFC62 /* AddAction.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AddAction.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EBD416823F1D34D00BDFC62 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		5EBD416A23F1D34D00BDFC62 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
+		5EBD416D23F1D34D00BDFC62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		5EBD416F23F1D34D00BDFC62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5EBD417323F1D34D00BDFC62 /* AddAction.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AddAction.entitlements; sourceTree = "<group>"; };
 		5EBD890B23F0BBEF008A5F5E /* Wishlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wishlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EBD890E23F0BBEF008A5F5E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5EBD891023F0BBEF008A5F5E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -32,6 +66,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5EBD416323F1D34D00BDFC62 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5EBD890823F0BBEF008A5F5E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -43,10 +84,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5EBD416723F1D34D00BDFC62 /* AddAction */ = {
+			isa = PBXGroup;
+			children = (
+				5EBD417323F1D34D00BDFC62 /* AddAction.entitlements */,
+				5EBD416823F1D34D00BDFC62 /* Media.xcassets */,
+				5EBD416A23F1D34D00BDFC62 /* ActionViewController.swift */,
+				5EBD416C23F1D34D00BDFC62 /* MainInterface.storyboard */,
+				5EBD416F23F1D34D00BDFC62 /* Info.plist */,
+			);
+			path = AddAction;
+			sourceTree = "<group>";
+		};
 		5EBD890223F0BBEF008A5F5E = {
 			isa = PBXGroup;
 			children = (
 				5EBD890D23F0BBEF008A5F5E /* Wishlist */,
+				5EBD416723F1D34D00BDFC62 /* AddAction */,
 				5EBD890C23F0BBEF008A5F5E /* Products */,
 				5EBD892623F0BD43008A5F5E /* Frameworks */,
 			);
@@ -56,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				5EBD890B23F0BBEF008A5F5E /* Wishlist.app */,
+				5EBD416623F1D34D00BDFC62 /* AddAction.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,6 +150,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5EBD416523F1D34D00BDFC62 /* AddAction */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5EBD417723F1D34D00BDFC62 /* Build configuration list for PBXNativeTarget "AddAction" */;
+			buildPhases = (
+				5EBD416223F1D34D00BDFC62 /* Sources */,
+				5EBD416323F1D34D00BDFC62 /* Frameworks */,
+				5EBD416423F1D34D00BDFC62 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AddAction;
+			productName = AddAction;
+			productReference = 5EBD416623F1D34D00BDFC62 /* AddAction.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		5EBD890A23F0BBEF008A5F5E /* Wishlist */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5EBD892223F0BBF1008A5F5E /* Build configuration list for PBXNativeTarget "Wishlist" */;
@@ -102,10 +174,12 @@
 				5EBD890723F0BBEF008A5F5E /* Sources */,
 				5EBD890823F0BBEF008A5F5E /* Frameworks */,
 				5EBD890923F0BBEF008A5F5E /* Resources */,
+				5EBD417423F1D34D00BDFC62 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5EBD417123F1D34D00BDFC62 /* PBXTargetDependency */,
 			);
 			name = Wishlist;
 			productName = Wishlist;
@@ -118,10 +192,13 @@
 		5EBD890323F0BBEF008A5F5E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1130;
+				LastSwiftUpdateCheck = 1140;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = Veevaz;
 				TargetAttributes = {
+					5EBD416523F1D34D00BDFC62 = {
+						CreatedOnToolsVersion = 11.4;
+					};
 					5EBD890A23F0BBEF008A5F5E = {
 						CreatedOnToolsVersion = 11.3;
 					};
@@ -141,11 +218,21 @@
 			projectRoot = "";
 			targets = (
 				5EBD890A23F0BBEF008A5F5E /* Wishlist */,
+				5EBD416523F1D34D00BDFC62 /* AddAction */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5EBD416423F1D34D00BDFC62 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EBD416923F1D34D00BDFC62 /* Media.xcassets in Resources */,
+				5EBD416E23F1D34D00BDFC62 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5EBD890923F0BBEF008A5F5E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -159,6 +246,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5EBD416223F1D34D00BDFC62 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EBD416B23F1D34D00BDFC62 /* ActionViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5EBD890723F0BBEF008A5F5E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -172,7 +267,23 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		5EBD417123F1D34D00BDFC62 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5EBD416523F1D34D00BDFC62 /* AddAction */;
+			targetProxy = 5EBD417023F1D34D00BDFC62 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		5EBD416C23F1D34D00BDFC62 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5EBD416D23F1D34D00BDFC62 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		5EBD891C23F0BBF1008A5F5E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -184,6 +295,50 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		5EBD417523F1D34D00BDFC62 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = AddAction/AddAction.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6B563564C5;
+				INFOPLIST_FILE = AddAction/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.veevaz.Wishlist.AddAction;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5EBD417623F1D34D00BDFC62 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = AddAction/AddAction.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6B563564C5;
+				INFOPLIST_FILE = AddAction/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.veevaz.Wishlist.AddAction;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		5EBD892023F0BBF1008A5F5E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -301,6 +456,7 @@
 		5EBD892323F0BBF1008A5F5E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Wishlist/Wishlist.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -324,6 +480,7 @@
 		5EBD892423F0BBF1008A5F5E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Wishlist/Wishlist.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -347,6 +504,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5EBD417723F1D34D00BDFC62 /* Build configuration list for PBXNativeTarget "AddAction" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5EBD417523F1D34D00BDFC62 /* Debug */,
+				5EBD417623F1D34D00BDFC62 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5EBD890623F0BBEF008A5F5E /* Build configuration list for PBXProject "Wishlist" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
