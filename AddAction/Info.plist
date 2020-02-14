@@ -28,7 +28,7 @@
 			<string>
                 SUBQUERY (extensionItems, $extensionItem,
                     SUBQUERY ($extensionItem.attachments, $attachment,
-                        ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "public.url"
+                        ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO &quot;public.url&quot;
                     ).@count == 1
                 ).@count == 1
             </string>
@@ -43,10 +43,10 @@
 			<key>NSExtensionServiceTouchBarIconName</key>
 			<string>NSActionTemplate</string>
 		</dict>
-		<key>NSExtensionMainStoryboard</key>
-		<string>MainInterface</string>
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.ui-services</string>
+		<key>NSExtensionPrincipalClass</key>
+		<string>$(PRODUCT_MODULE_NAME).ActionViewController</string>
 	</dict>
 </dict>
 </plist>

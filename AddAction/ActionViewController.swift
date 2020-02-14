@@ -7,61 +7,57 @@
 //
 
 import MobileCoreServices
+import SwiftUI
 import UIKit
 
-class ActionViewController: UIViewController {
-    let spinner = UIActivityIndicatorView(style: .large)
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        view.addSubview(self.spinner)
-        self.spinner.startAnimating()
-        self.spinner.translatesAutoresizingMaskIntoConstraints = false
-
-        NSLayoutConstraint.activate([
-            self.spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            self.spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-        ])
+class ActionViewController: UIHostingController<AnyView> {
+//    var contentView = ContentView()
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(rootView: AnyView(ActivityIndicator(style: .large)))
+    }
+    
+    @objc dynamic required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
+        var urlFound = false
         for item in self.extensionContext!.inputItems as! [NSExtensionItem] {
-            var urlFound = false
-            for provider in item.attachments! {
-                if provider.hasItemConformingToTypeIdentifier(kUTTypeURL as String) {
-                    provider.loadItem(forTypeIdentifier: kUTTypeURL as String, options: nil, completionHandler: { url, error in
-                        guard let url = url as? URL else {
-                            print(error!.localizedDescription)
-                            return
-                        }
-                        print(url)
-                        OperationQueue.main.addOperation {
-                            AppStoreService.lookupApp(with: url) { result in
-//                                self.spinner.removeFromSuperview()
-                                switch result {
-                                case .success(let app):
-                                    print(app)
-                                case .failure(let error):
-                                    print(error)
-                                }
-                            }
-                        }
-                    })
-
-                    urlFound = true
-                    break
+            guard let urlProvider = item.attachments!.first(where: { $0.hasItemConformingToTypeIdentifier(kUTTypeURL as String) }) else {
+                continue
+            }
+            
+            urlFound = true
+            
+            urlProvider.loadItem(forTypeIdentifier: kUTTypeURL as String, options: nil, completionHandler: { url, error in
+                guard let url = url as? URL else {
+                    self.completion(.failure(error!))
+                    return
                 }
-            }
-
-            if urlFound {
-                // We only handle one image, so stop looking for more.
-                break
-            }
+                
+                OperationQueue.main.addOperation {
+                    let contentView = ContentView(url: url, completion: self.completion)
+                    self.rootView = AnyView(contentView)
+                }
+                
+            })
+            break
+        }
+        
+        if !urlFound {
+            self.completion(.failure(NSError(domain: "Error", code: -1, userInfo: nil)))
         }
     }
-
-    @IBAction func done() {
-        // Return any edited content to the host app.
-        // This template doesn't do anything, so we just echo the passed in items.
-        self.extensionContext!.completeRequest(returningItems: self.extensionContext!.inputItems, completionHandler: nil)
+    
+    func completion(_ result: Result<Void, Error>) {
+        switch result {
+        case .failure(let error):
+            self.extensionContext?.cancelRequest(withError: error)
+        default:
+            self.extensionContext!.completeRequest(returningItems: self.extensionContext!.inputItems, completionHandler: nil)
+        }
     }
 }
