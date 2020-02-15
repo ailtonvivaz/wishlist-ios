@@ -40,10 +40,12 @@ class AppStoreService {
                     let kind = result["kind"] as! String
                     let iconURL = URL(string: result["artworkUrl512"] as! String)!
                     let seller = result["sellerName"] as! String
-                    let price = result["price"] as! Float
+                    let priceValue = result["price"] as! Float
                     let bundleId = result["bundleId"] as! String
                     
-                    let app = AppModel(id: appId, name: name, description: description, url: appStoreLink, genre: genre, kind: kind, iconURL: iconURL, seller: seller, price: price, bundleId: bundleId)                    
+                    let price = PriceModel(date: Date(), value: priceValue)
+                    
+                    let app = AppModel(id: appId, name: name, description: description, url: appStoreLink, genre: genre, kind: kind, iconURL: iconURL, seller: seller, bundleId: bundleId, prices: [price])
                     
                     completion(.success(app))
                 }

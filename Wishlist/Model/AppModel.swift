@@ -6,17 +6,35 @@
 //  Copyright © 2020 Veevaz. All rights reserved.
 //
 
+import CoreData
 import Foundation
 
 struct AppModel {
     var id: String
     var name: String
-    var description: String
+    var description: String = ""
     var url: URL
     var genre: String
     var kind: String
     var iconURL: URL
     var seller: String
-    var price: Float
-    var bundleId: String    
+    var bundleId: String
+    
+    var prices: [PriceModel]
+    
+    func toEntity(with moc: NSManagedObjectContext) -> App {
+        let app = App(context: moc)
+        app.id = id
+        app.name = name
+        app.desc = description
+        app.url = url
+        app.genre = genre
+        app.kind = kind
+        app.iconUrl = iconURL
+        app.seller = seller
+        app.bundleId = bundleId
+        
+        app.prices = NSSet(array: prices.map { $0.toEntity(with: moc) })
+        return app
+    }
 }

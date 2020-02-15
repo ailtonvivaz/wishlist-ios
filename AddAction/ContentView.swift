@@ -32,6 +32,7 @@ struct ContentView: View {
     }
 
     func doneTapped() {
+//        completion(.failure(NSError(domain: "fdsafsadf", code: -1, userInfo: nil)))
         completion(.success(()))
     }
 

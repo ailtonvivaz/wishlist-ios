@@ -11,7 +11,6 @@ import SwiftUI
 import UIKit
 
 class ActionViewController: UIHostingController<AnyView> {
-//    var contentView = ContentView()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(rootView: AnyView(ActivityIndicator(style: .large)))

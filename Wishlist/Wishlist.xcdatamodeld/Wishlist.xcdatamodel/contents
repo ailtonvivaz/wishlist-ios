@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16114.2" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="App" representedClassName=".App" syncable="YES" codeGenerationType="class">
+        <attribute name="bundleId" optional="YES" attributeType="String"/>
+        <attribute name="desc" optional="YES" attributeType="String"/>
+        <attribute name="genre" optional="YES" attributeType="String"/>
+        <attribute name="iconUrl" optional="YES" attributeType="URI"/>
         <attribute name="id" attributeType="String" defaultValueString=""/>
+        <attribute name="kind" optional="YES" attributeType="String"/>
         <attribute name="name" attributeType="String" defaultValueString=""/>
+        <attribute name="seller" optional="YES" attributeType="String"/>
         <attribute name="url" optional="YES" attributeType="URI"/>
         <relationship name="prices" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Price" inverseName="app" inverseEntity="Price"/>
     </entity>
@@ -12,7 +18,7 @@
         <relationship name="app" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="App" inverseName="prices" inverseEntity="App"/>
     </entity>
     <elements>
-        <element name="App" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="App" positionX="-63" positionY="-18" width="128" height="193"/>
         <element name="Price" positionX="-54" positionY="18" width="128" height="88"/>
     </elements>
 </model>
