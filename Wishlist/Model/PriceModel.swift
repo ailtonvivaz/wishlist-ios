@@ -12,8 +12,8 @@ struct PriceModel {
     var date: Date
     var value: Float
     
-    func toEntity(with moc: NSManagedObjectContext) -> Price {
-        let price = Price(context: moc)
+    func toEntity(with moc: NSManagedObjectContext) -> PriceEntity {
+        let price = PriceEntity(context: moc)
         price.date = date
         price.value = value
         return price

@@ -11,7 +11,7 @@ import SwiftUI
 
 struct HomePageView: View {
     @Environment(\.managedObjectContext) var moc
-    @FetchRequest(entity: App.entity(), sortDescriptors: [NSSortDescriptor(key: "name", ascending: true)]) var apps: FetchedResults<App>
+    @FetchRequest(entity: AppEntity.entity(), sortDescriptors: [NSSortDescriptor(key: "name", ascending: true)]) var apps: FetchedResults<AppEntity>
 
     @State private var showingSheet = false
 

@@ -10,7 +10,7 @@ import Foundation
 
 class Model: ObservableObject {
 //    @Enviroment var context
-    @Published var apps: [App] = []
+    @Published var apps: [AppEntity] = []
 
     init() {
         

@@ -6,12 +6,15 @@
 //  Copyright © 2020 Veevaz. All rights reserved.
 //
 
+import CoreData
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.managedObjectContext) var moc
+
     @State var url: URL
     var completion: (Result<Void, Error>) -> Void
-    @State private var app: AppModel?
+    @State private var app: AppEntity?
 
     var body: some View {
         NavigationView {
@@ -19,7 +22,10 @@ struct ContentView: View {
                 if app == nil {
                     ActivityIndicator(style: .large)
                 } else {
-                    Text(app!.name)
+                    VStack {
+                        AppCellView(app: app!)
+                        Spacer()
+                    }.padding()
                 }
             }
             .onAppear(perform: loadApp)
@@ -32,18 +38,29 @@ struct ContentView: View {
     }
 
     func doneTapped() {
-//        completion(.failure(NSError(domain: "fdsafsadf", code: -1, userInfo: nil)))
-        completion(.success(()))
+        if app != nil {
+            save()
+            completion(.success(()))
+        }
     }
 
     func loadApp() {
         AppStoreService.lookupApp(with: url) { result in
             switch result {
             case .success(let app):
-                self.app = app
+                self.app = app.toEntity(with: self.moc)
             case .failure(let error):
                 self.completion(.failure(error))
             }
+        }
+    }
+
+    func save() {
+        do {
+            try moc.save()
+            print("sucesso")
+        } catch {
+            print(error.localizedDescription)
         }
     }
 }

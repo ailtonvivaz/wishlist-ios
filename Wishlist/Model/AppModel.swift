@@ -22,8 +22,8 @@ struct AppModel {
     
     var prices: [PriceModel]
     
-    func toEntity(with moc: NSManagedObjectContext) -> App {
-        let app = App(context: moc)
+    func toEntity(with moc: NSManagedObjectContext) -> AppEntity {
+        let app = AppEntity(context: moc)
         app.id = id
         app.name = name
         app.desc = description

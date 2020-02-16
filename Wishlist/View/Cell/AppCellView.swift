@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct AppCellView: View {
-    var app: App
+    var app: AppEntity
 
     var body: some View {
             HStack(alignment: .center) {

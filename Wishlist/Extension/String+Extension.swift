@@ -1,5 +1,5 @@
 //
-//  String+groups.swift
+//  String+Extension.swift
 //  Wishlist
 //
 //  Created by Ailton Vieira Pinto Filho on 11/02/20.
