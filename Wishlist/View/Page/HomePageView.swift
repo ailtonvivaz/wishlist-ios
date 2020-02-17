@@ -18,22 +18,12 @@ struct HomePageView: View {
     var body: some View {
         GeometryReader { _ in
             NavigationView {
-                VStack {
-                    Form {
-                        ForEach(self.apps, id: \.self) { app in
-//                        Text(app.name ?? "")
-                            NavigationLink(destination: Text(app.name!)) {
-                                AppCellView(app: app)
-//                                    .padding(.vertical)
-                                //                                .background(Color.red)
-                            }
+                Form {
+                    ForEach(self.apps, id: \.id) { app in
+                        NavigationLink(destination: AppPageView(app: app)) {
+                            AppCellView(app: app)
                         }
                     }
-                    Button("Update") {
-                        self.moc.stalenessInterval = 0
-                        self.moc.refreshAllObjects()
-                        self.moc.stalenessInterval = -1
-                    }.padding()
                 }
                 .navigationBarTitle("Wishlist")
             }

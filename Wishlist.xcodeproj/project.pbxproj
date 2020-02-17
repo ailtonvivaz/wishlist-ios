@@ -13,6 +13,7 @@
 		5E36B36523F9BEFC00016B25 /* CoreStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36B36423F9BEFC00016B25 /* CoreStack.swift */; };
 		5E36B36623F9BFC200016B25 /* CoreStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36B36423F9BEFC00016B25 /* CoreStack.swift */; };
 		5E36B36723FA140800016B25 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EBD892723F0BD43008A5F5E /* CloudKit.framework */; };
+		5E36B36923FA1EF200016B25 /* AppPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36B36823FA1EF200016B25 /* AppPageView.swift */; };
 		5E402E9023F611140083D5EF /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E402E8F23F611140083D5EF /* AppModel.swift */; };
 		5E402E9123F6127D0083D5EF /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E402E8F23F611140083D5EF /* AppModel.swift */; };
 		5E402E9423F616F60083D5EF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E402E9323F616F60083D5EF /* ContentView.swift */; };
@@ -75,6 +76,7 @@
 
 /* Begin PBXFileReference section */
 		5E36B36423F9BEFC00016B25 /* CoreStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreStack.swift; sourceTree = "<group>"; };
+		5E36B36823FA1EF200016B25 /* AppPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPageView.swift; sourceTree = "<group>"; };
 		5E402E8F23F611140083D5EF /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		5E402E9323F616F60083D5EF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5E8285D323F967830081828A /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				5EBD891523F0BBEF008A5F5E /* HomePageView.swift */,
+				5E36B36823FA1EF200016B25 /* AppPageView.swift */,
 			);
 			path = Page;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EFD6D8623F3270700660F48 /* Model.swift in Sources */,
+				5E36B36923FA1EF200016B25 /* AppPageView.swift in Sources */,
 				5EFD6D8223F3256100660F48 /* String+Extension.swift in Sources */,
 				5EBD891423F0BBEF008A5F5E /* Wishlist.xcdatamodeld in Sources */,
 				5EFDCBC423F7226200B0D691 /* RemoteImageService.swift in Sources */,

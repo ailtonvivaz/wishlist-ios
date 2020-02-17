@@ -16,14 +16,36 @@ struct ContentView: View {
     var completion: (Result<Void, Error>) -> Void
     @State private var app: AppEntity?
 
+    @State private var loading = true
+    @State private var error: Error?
+
     var body: some View {
         NavigationView {
             VStack {
-                if app == nil {
+                if loading {
                     ActivityIndicator(style: .large)
                 } else {
                     VStack {
-                        AppCellView(app: app!)
+                        if app != nil {
+                            AppCellView(app: app!)
+                        }
+                        Spacer()
+                        Group {
+                            if error == nil {
+                                Image(systemName: "checkmark")
+                                    .font(.system(size: 80))
+                                    .padding()
+                                Text("App added to Wishlist")
+                                    .padding(.top)
+                            } else {
+                                Image(systemName: "xmark")
+                                    .font(.system(size: 80))
+                                    .padding()
+                                Text("Error adding to Wishlist")
+                                    .padding(.top)
+                            }
+                        }
+                        .foregroundColor(.gray)
                         Spacer()
                     }.padding()
                 }
@@ -38,7 +60,9 @@ struct ContentView: View {
     }
 
     func doneTapped() {
-        if app != nil {
+        if let error = error {
+            completion(.failure(error))
+        } else {
             save()
             completion(.success(()))
         }
@@ -48,9 +72,13 @@ struct ContentView: View {
         AppStoreService.lookupApp(with: url) { result in
             switch result {
             case .success(let app):
-                self.app = app.toEntity(with: self.moc)
+                let appEntity = app.toEntity(with: self.moc)
+                self.save()
+                self.app = appEntity
+                self.loading = false
             case .failure(let error):
-                self.completion(.failure(error))
+                self.error = error
+                self.loading = false
             }
         }
     }
@@ -60,6 +88,7 @@ struct ContentView: View {
             try moc.save()
             print("sucesso")
         } catch {
+            self.error = error
             print(error.localizedDescription)
         }
     }
