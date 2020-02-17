@@ -29,17 +29,11 @@ struct HomePageView: View {
                             }
                         }
                     }
-                    Button("Add") {
-                        AppStoreService.lookupApp(with: URL(string: "https://apps.apple.com/br/app/blox-o-jogo-dos-blocos/id1470664581")!) { result in
-                            switch result {
-                            case .success(let app):
-                                _ = app.toEntity(with: self.moc)
-                                self.save()
-                            case .failure:
-                                break
-                            }
-                        }
-                    }
+                    Button("Update") {
+                        self.moc.stalenessInterval = 0
+                        self.moc.refreshAllObjects()
+                        self.moc.stalenessInterval = -1
+                    }.padding()
                 }
                 .navigationBarTitle("Wishlist")
             }

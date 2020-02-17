@@ -10,12 +10,12 @@
         <attribute name="name" attributeType="String" defaultValueString=""/>
         <attribute name="seller" optional="YES" attributeType="String"/>
         <attribute name="url" optional="YES" attributeType="URI"/>
-        <relationship name="prices" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Price" inverseName="app" inverseEntity="Price"/>
+        <relationship name="prices" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Price" inverseName="app" inverseEntity="Price"/>
     </entity>
     <entity name="Price" representedClassName="PriceEntity" syncable="YES" codeGenerationType="class">
         <attribute name="date" attributeType="Date" defaultDateTimeInterval="603324660" usesScalarValueType="NO"/>
         <attribute name="value" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <relationship name="app" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="App" inverseName="prices" inverseEntity="App"/>
+        <relationship name="app" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="App" inverseName="prices" inverseEntity="App"/>
     </entity>
     <elements>
         <element name="App" positionX="-63" positionY="-18" width="128" height="193"/>

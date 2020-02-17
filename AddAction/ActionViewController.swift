@@ -12,32 +12,6 @@ import SwiftUI
 import UIKit
 
 class ActionViewController: UIHostingController<AnyView> {
-    // MARK: - Core Data stack
-    
-    lazy var persistentContainer: NSPersistentCloudKitContainer = {
-        /*
-         The persistent container for the application. This implementation
-         creates and returns a container, having loaded the store for the
-         application to it. This property is optional since there are legitimate
-         error conditions that could cause the creation of the store to fail.
-         */
-        let container = NSPersistentCloudKitContainer(name: "Wishlist")
-        
-        let storeURL = URL.storeURL(for: "group.com.veevaz.Wishlist", databaseName: "Wishlist")
-        let storeDescription = NSPersistentStoreDescription(url: storeURL)
-        container.persistentStoreDescriptions = [storeDescription]
-        
-        container.loadPersistentStores(completionHandler: { _, error in
-            if let error = error as NSError? {
-                fatalError("Unresolved error \(error), \(error.userInfo)")
-            }
-        })
-        
-        container.viewContext.automaticallyMergesChangesFromParent = true
-        container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
-        
-        return container
-    }()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(rootView: AnyView(ActivityIndicator(style: .large)))
@@ -66,7 +40,7 @@ class ActionViewController: UIHostingController<AnyView> {
                 
                 OperationQueue.main.addOperation {
                     let contentView = ContentView(url: url, completion: self.completion)
-                        .environment(\.managedObjectContext, self.persistentContainer.viewContext)
+                        .environment(\.managedObjectContext, CoreStack.shared.moc)
                     self.rootView = AnyView(contentView)
                 }
                 
