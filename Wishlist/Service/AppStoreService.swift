@@ -40,7 +40,7 @@ class AppStoreService {
                     let kind = result["kind"] as! String
                     let iconURL = URL(string: result["artworkUrl512"] as! String)!
                     let seller = result["sellerName"] as! String
-                    let priceValue = result["price"] as! Float
+                    let priceValue = (result["price"] as! NSNumber).floatValue
                     let bundleId = result["bundleId"] as! String
                     
                     let price = PriceModel(date: Date(), value: priceValue)

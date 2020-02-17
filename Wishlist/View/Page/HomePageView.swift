@@ -11,22 +11,27 @@ import SwiftUI
 
 struct HomePageView: View {
     @Environment(\.managedObjectContext) var moc
-    @FetchRequest(entity: AppEntity.entity(), sortDescriptors: [NSSortDescriptor(key: "name", ascending: true)]) var apps: FetchedResults<AppEntity>
+    @FetchRequest(entity: AppEntity.entity(), sortDescriptors: [NSSortDescriptor(key: "name", ascending: true)], predicate: NSPredicate(format: "filed == NO")) var apps: FetchedResults<AppEntity>
 
     @State private var showingSheet = false
 
     var body: some View {
-        GeometryReader { _ in
-            NavigationView {
-                Form {
-                    ForEach(self.apps, id: \.id) { app in
-                        NavigationLink(destination: AppPageView(app: app)) {
-                            AppCellView(app: app)
+        NavigationView {
+            Group {
+                if apps.count > 0 {
+                    Form {
+                        ForEach(self.apps, id: \.id) { app in
+                            NavigationLink(destination: AppPageView(app: app)) {
+                                AppCellView(app: app)
+                            }
                         }
                     }
+                } else {
+                    Text("You haven't any wish yet.\nPlease add sharing the app by App Store")
+                        .multilineTextAlignment(.center)
                 }
-                .navigationBarTitle("Wishlist")
             }
+            .navigationBarTitle("Wishlist")
         }
     }
 

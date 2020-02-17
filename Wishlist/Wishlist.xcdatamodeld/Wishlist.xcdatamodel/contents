@@ -3,6 +3,7 @@
     <entity name="App" representedClassName="AppEntity" syncable="YES" codeGenerationType="class">
         <attribute name="bundleId" optional="YES" attributeType="String"/>
         <attribute name="desc" optional="YES" attributeType="String"/>
+        <attribute name="filed" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="genre" optional="YES" attributeType="String"/>
         <attribute name="iconUrl" optional="YES" attributeType="URI"/>
         <attribute name="id" attributeType="String" defaultValueString=""/>
@@ -18,7 +19,7 @@
         <relationship name="app" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="App" inverseName="prices" inverseEntity="App"/>
     </entity>
     <elements>
-        <element name="App" positionX="-63" positionY="-18" width="128" height="193"/>
+        <element name="App" positionX="-63" positionY="-18" width="128" height="208"/>
         <element name="Price" positionX="-54" positionY="18" width="128" height="88"/>
     </elements>
 </model>

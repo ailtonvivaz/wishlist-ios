@@ -9,6 +9,9 @@
 import SwiftUI
 
 struct AppPageView: View {
+    @Environment(\.managedObjectContext) var moc
+    @Environment(\.presentationMode) var presentationMode
+    
     var app: AppEntity
 
     var body: some View {
@@ -41,14 +44,28 @@ struct AppPageView: View {
                 }
                 Text(app.desc!)
                     .lineLimit(10)
-                Spacer()
             }.padding()
         }
+    .navigationViewStyle(DoubleColumnNavigationViewStyle)
+        .navigationBarTitle(Text(""), displayMode: .inline)
+        .navigationBarItems(trailing: Button(action: file) {
+            Image(systemName: "tray.and.arrow.down").imageScale(.large)
+        })
     }
-    
+
     func openAppStore() {
         if let url = app.url {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
+
+    func file() {
+        self.app.filed = true
+        do {
+            try self.moc.save()
+            presentationMode.wrappedValue.dismiss()
+        } catch {
+            print(error.localizedDescription)
         }
     }
 }
